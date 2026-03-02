@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Movie Insight Builder 🎬
 
-## Getting Started
+A professional full-stack web application that allows users to enter an IMDb ID to retrieve detailed movie metadata and AI-generated audience sentiment insights.
 
-First, run the development server:
+**Live Demo:** [https://ai-movie-insight-stir.vercel.app/](https://ai-movie-insight-stir.vercel.app/)
 
-```bash
+---
+
+## 🚀 Features
+- **Metadata Retrieval:** Fetches Title, Year, Rating, Cast, and Plot using the OMDb API.
+- **AI Sentiment Analysis:** Uses Google Gemini AI to summarize audience sentiment and classify it as Positive, Mixed, or Negative.
+- **Responsive Design:** Premium, modern UI built with Tailwind CSS that works seamlessly on mobile and desktop.
+- **Smooth Animations:** Integrated Framer Motion for a high-end user experience.
+- **Graceful Error Handling:** Validates IMDb IDs and handles API failures without crashing.
+
+---
+
+## 🛠️ Tech Stack & Rationale
+
+| Technology | Purpose | Rationale |
+| :--- | :--- | :--- |
+| **Next.js 14** | Framework | Chosen for its unified Routing (App Router) and Server Actions, which align with the company's focus on scalable apps. |
+| **TypeScript** | Language | Ensures type safety and reduces runtime errors, meeting the "Clean Code" requirement. |
+| **Tailwind CSS** | Styling | Allows for rapid, consistent UI development with a "modern outlook". |
+| **Framer Motion** | Animations | Provides the "premium" feel and smooth transitions requested in the brief. |
+| **Google Gemini API** | AI Engine | Used for its high-performance natural language processing to extract insights from plot data. |
+| **Vercel** | Hosting | Recommended for Next.js to ensure 1-click deployments and seamless environment variable handling. |
+
+---
+
+## ⚙️ Setup Instructions
+
+Follow these steps to run the project locally:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone [https://github.com/sumitdiwaka/ai-movie-insight-STIR]
+   (https://github.com/your-username/ai-movie-insight.git)
+   cd ai-movie-insight
+
+2. **Install Dependencies:**
+    npm install
+
+3. **Environment Variables:**
+Create a .env.local file in the root directory and add your API keys:
+
+NEXT_PUBLIC_OMDB_API_KEY=your_omdb_key
+GEMINI_API_KEY=your_gemini_key
+
+3. **Run the Development Server:**
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🧠 Assumptions & Decisions
+Data Sourcing: While the brief mentioned "scraping", I opted for the OMDb API to ensure data accuracy, stability, and adherence to legal best practices.
+AI Context: Since real-time "audience reviews" often require heavy scraping that can be blocked, I prompted the AI to generate a "Sentiment Summary" based on the detailed Plot and Metadata to simulate audience reception accurately.UI Minimalism: Focused on a "Single Page" experience to avoid over-engineering while maximizing usability.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🧪 TestingUnit Tests: Basic validation tests ensure that empty or invalid IMDb IDs (e.g., tt0000000) trigger appropriate error messages.
+Responsiveness: Verified using Chrome DevTools across mobile, tablet, and desktop breakpoints
